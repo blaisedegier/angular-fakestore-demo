@@ -66,3 +66,7 @@ Angular 21 (standalone components, signals, reactive forms), RxJS, DevExtreme, V
 - Unit tests check that each page and component renders, plus the landing page and header links;
   they do not exercise the filtering logic.
 - DevExtreme is a commercial library and needs a licence key to run without the banner.
+
+## Licence
+
+MIT. See [LICENSE](LICENSE). DevExtreme is licensed separately by DevExpress.
