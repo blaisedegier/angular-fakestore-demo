@@ -1,0 +1,17 @@
+<header class="header">
+  <nav>
+    <a class="logo" routerLink="/">Fake Store</a>
+    <ul>
+      <li><a routerLink="/products">Products</a></li>
+      <li class="cart-link">
+        <a routerLink="/cart">
+          Cart
+          @if (cartItemCount > 0) {
+            <span class="cart-badge">{{ cartItemCount }}</span>
+          }
+        </a>
+      </li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>

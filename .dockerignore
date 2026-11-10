@@ -1,0 +1,56 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build output (will be built inside container)
+dist
+tmp
+out-tsc
+bazel-out
+
+# IDE files
+.vscode
+.idea
+*.launch
+.settings
+*.sublime-workspace
+
+# Angular cache
+.angular
+.sass-cache
+
+# Testing
+coverage
+__screenshots__
+testem.log
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Documentation
+README.md
+*.md
+
+# Misc
+connect.lock
+libpeerconnection.log
+typings
+.history

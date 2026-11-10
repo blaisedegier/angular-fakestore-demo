@@ -1,0 +1,18 @@
+<div class="product-card">
+  <img [src]="product.image" [alt]="product.title" />
+
+  <span class="category-badge">{{ product.category }}</span>
+
+  <h3 [title]="product.title">{{ product.title }}</h3>
+
+  <div class="star-rating" [title]="product.rating.rate + ' out of 5 stars'">
+    <span [style.--rating-width]="(product.rating.rate / 5) * 100 + '%'"> ★★★★★ </span>
+    <span class="rating-count">({{ product.rating.count }})</span>
+  </div>
+
+  <p class="description">{{ product.description }}</p>
+
+  <span class="price">{{ product.price | currency: 'R ' }}</span>
+
+  <button (click)="onAddToCart()">Add to Cart</button>
+</div>

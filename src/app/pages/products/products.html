@@ -1,0 +1,90 @@
+<div class="products-container">
+  <div class="filters-section">
+    <h2>Filter & Search Products</h2>
+
+    <div class="filters-grid">
+      <div class="filter-item">
+        <label>Search</label>
+        <dx-text-box
+          placeholder="Search products..."
+          [showClearButton]="true"
+          valueChangeEvent="input"
+          (onValueChanged)="updateSearch($event.value)"
+        />
+      </div>
+
+      <div class="filter-item">
+        <label>Category</label>
+        <dx-select-box
+          [items]="categories()"
+          [value]="currentCategory"
+          placeholder="All Categories"
+          (onValueChanged)="updateCategory($event.value)"
+        />
+      </div>
+
+      <div class="filter-item price-range">
+        <label>Price Range</label>
+        <div class="price-inputs">
+          <dx-number-box
+            placeholder="Min"
+            [min]="0"
+            [value]="$any(isPriceMinEmpty ? undefined : priceMinValue)"
+            [showSpinButtons]="true"
+            valueChangeEvent="input"
+            (onValueChanged)="updatePriceMin($event.value)"
+          />
+          <span class="price-separator">-</span>
+          <dx-number-box
+            placeholder="Max"
+            [min]="0"
+            [value]="$any(isPriceMaxEmpty ? undefined : priceMaxValue)"
+            [showSpinButtons]="true"
+            valueChangeEvent="input"
+            (onValueChanged)="updatePriceMax($event.value)"
+          />
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>Minimum Rating</label>
+        <dx-number-box
+          placeholder="Min Rating"
+          [min]="0"
+          [max]="5"
+          [step]="0.1"
+          [value]="$any(isRatingEmpty ? undefined : ratingValue)"
+          [showSpinButtons]="true"
+          valueChangeEvent="input"
+          (onValueChanged)="updateRating($event.value)"
+        />
+      </div>
+
+      <div class="filter-item">
+        <label>Sort By</label>
+        <dx-select-box
+          [items]="sortOptions"
+          displayExpr="label"
+          valueExpr="value"
+          [value]="currentSort"
+          placeholder="Sort by..."
+          (onValueChanged)="updateSort($event.value)"
+        />
+      </div>
+    </div>
+  </div>
+
+  @if (filteredProducts$ | async; as products) {
+    @if (products.length > 0) {
+      <app-product-list [products]="products" (addToCart)="onAddToCart($event)" />
+    } @else {
+      <div class="no-results">
+        <p>No products found matching your criteria.</p>
+      </div>
+    }
+  } @else {
+    <div class="loading">
+      <p>Loading products...</p>
+    </div>
+  }
+</div>
