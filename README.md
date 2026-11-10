@@ -33,7 +33,7 @@ header badge and the cart page stay in step.
 
 ## Running it
 
-Prerequisites: Node.js 20.19+, 22.12+ or 24+ (CI uses 22) and npm.
+Prerequisites: Node.js 20.19+, 22.12+ or 24+ (CI uses 24, the version the lockfile is generated with) and npm.
 
 ```bash
 npm ci
@@ -49,7 +49,7 @@ Without a key the app still runs, but DevExtreme shows its unlicensed-use banner
 The tests run under Vitest with jsdom. `vitest.config.ts` tells Vite to process DevExtreme itself,
 because its packages use directory imports that Node's ES module loader rejects.
 
-A multi-stage `Dockerfile` builds the app with Node 22 and serves `dist/Angular/browser` from nginx
+A multi-stage `Dockerfile` builds the app with Node 24 and serves `dist/Angular/browser` from nginx
 with a fallback to `index.html` for client-side routes.
 
 ## Tech
